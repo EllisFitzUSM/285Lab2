@@ -1,6 +1,10 @@
 import java.util.ListIterator;
 
 public class MyArrayListIterator implements ListIterator<Fraction> {
+	
+	public int previous;
+	public int current;
+	public int next;
 
 	@Override
 	public boolean hasPrevious() {
