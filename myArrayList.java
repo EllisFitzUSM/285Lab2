@@ -70,5 +70,12 @@ public class myArrayList<T> {
         
     }
     
+    /**
+     * @return The size of the myArrayList
+     */
+    public int size() {
+        return size;
+    }
+    
     
 }
