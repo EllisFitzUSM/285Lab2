@@ -1,15 +1,17 @@
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class MyArrayListIterator implements ListIterator<Fraction> {
 
 	public myArrayList<Fraction> Data;
-	
+
 	public int previous;
 	public int current;
 	public int next;
 
 	public MyArrayListIterator(myArrayList<Fraction> Data) {
 		this.Data = Data;
+		this.current = 0;
 	}
 
 	@Override
@@ -20,8 +22,12 @@ public class MyArrayListIterator implements ListIterator<Fraction> {
 
 	@Override
 	public Fraction previous() {
-		// TODO Auto-generated method stub
-		return null;
+		if (hasPrevious()) {
+			current--;
+			return Data.get(current);
+		} else {
+			throw new NoSuchElementException("no element before");
+		}
 	}
 
 	@Override
