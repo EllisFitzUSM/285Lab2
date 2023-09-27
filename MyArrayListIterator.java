@@ -24,16 +24,36 @@ public class MyArrayListIterator implements ListIterator<Fraction> {
 		return null;
 	}
 
+	/**
+	 * @author Ellis Fitzgerald
+	 * @version September 25 2023
+	 * nextIndex - returns the integer that would represent next index. If the index is less than 0 or greater than size, returns size.
+	 * @return integer representing
+	 */
 	@Override
 	public int nextIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(current < Data.size() - 1) {
+		    return current++;
+		}
+		else {
+		    return Data.size();
+		}
 	}
 
+	/** 
+	 * @author Ellis Fitzgerald
+	 * @version September 25 2023
+	 * previousIndex - returns the integer that would represent the previous index. If the current index is below 0, returns -1
+	 * @return integer representing
+	 */
 	@Override
 	public int previousIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(current > 0) {
+		    return current--;
+		}
+		else {
+		    return -1;
+		}
 	}
 
 	@Override
