@@ -99,11 +99,15 @@ public class MyArrayListIterator implements ListIterator<Fraction> {
 		return data.get(current++);
 	}
 
-	@Override
-	public boolean hasNext() {
-		// TODO Auto-generated method stub
+    	//Gabrielle Akers
+    	@Override
+    	public boolean hasNext() {
+		int i = 0;
+		while (i < size) {
+			return true;
+		}
 		return false;
-	}
+    }
 
 	@Override
 	public void add(Fraction e) {
