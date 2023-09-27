@@ -7,24 +7,24 @@ public class myArrayList<T> {
 	private Object[] elements;
 	int size;
 	int index;
-
-	// Josh Thyng (Boolean Contains)
+  
 	public myArrayList() {
 		elements = new Object[INITIAL_CAPACITY];
 		size = 0;
 	}
 
-	public boolean contains(Fraction input) {
-		for (int i = 0; i < size; i++) {
-			if (elements[i] != null && elements[i] instanceof Fraction) {
-				Fraction fraction = (Fraction) elements[i];
-				if (fraction.equals(input)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+  // Josh Thyng (Boolean Contains)
+  public boolean contains(Fraction input) {
+      for (int i = 0; i < size; i++) {
+          if (elements[i] != null && elements[i] instanceof Fraction) {
+              Fraction fraction = (Fraction) elements[i];
+              if (fraction.equals(input)) {
+                  return true;
+              }
+          }
+      }
+      return false;
+  }
 
 	/*
 	 * Jonah
@@ -87,5 +87,3 @@ public class myArrayList<T> {
 	public void set(int index, Fraction element) {
 		elements[index] = element;
 	}
-
-}

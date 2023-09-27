@@ -2,13 +2,13 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 public class MyArrayListIterator implements ListIterator<Fraction> {
-	// we definitely need some type of pointer or int for lastReturned, and possibly
+	// Jonah: we definitely need some type of pointer or int for lastReturned, and possibly
 	// some booleans for next and prev.
 	private myArrayList<Fraction> data;
 	private int current;
 
+  // Jonah
 	public MyArrayListIterator() {
-
 	}
 
 	@Override
@@ -19,20 +19,44 @@ public class MyArrayListIterator implements ListIterator<Fraction> {
 
 	@Override
 	public Fraction previous() {
-		// TODO Auto-generated method stub
-		return null;
+		if (hasPrevious()) {
+			current--;
+			return Data.get(current);
+		} else {
+			throw new NoSuchElementException("no element before");
+		}
 	}
 
+	/**
+	 * @author Ellis Fitzgerald
+	 * @version September 25 2023
+	 * nextIndex - returns the integer that would represent next index. If the index is less than 0 or greater than size, returns size.
+	 * @return integer representing
+	 */
 	@Override
 	public int nextIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(current < Data.size() - 1) {
+		    return current++;
+		}
+		else {
+		    return Data.size();
+		}
 	}
 
+	/** 
+	 * @author Ellis Fitzgerald
+	 * @version September 25 2023
+	 * previousIndex - returns the integer that would represent the previous index. If the current index is below 0, returns -1
+	 * @return integer representing
+	 */
 	@Override
 	public int previousIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(current > 0) {
+		    return current--;
+		}
+		else {
+		    return -1;
+		}
 	}
 
 	/**
