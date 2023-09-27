@@ -76,6 +76,14 @@ public class myArrayList<T> {
     public int size() {
         return size;
     }
+    public Fraction get(int index) {
+
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("error index out of bounds");
+        }
+    
+        return (Fraction) elements[index];
+    }
     
     
 }
