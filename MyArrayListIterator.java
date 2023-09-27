@@ -2,16 +2,13 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 public class MyArrayListIterator implements ListIterator<Fraction> {
+	// Jonah: we definitely need some type of pointer or int for lastReturned, and possibly
+	// some booleans for next and prev.
+	private myArrayList<Fraction> data;
+	private int current;
 
-	public myArrayList<Fraction> Data;
-
-	public int previous;
-	public int current;
-	public int next;
-
-	public MyArrayListIterator(myArrayList<Fraction> Data) {
-		this.Data = Data;
-		this.current = 0;
+  // Jonah
+	public MyArrayListIterator() {
 	}
 
 	@Override
@@ -62,22 +59,44 @@ public class MyArrayListIterator implements ListIterator<Fraction> {
 		}
 	}
 
+	/**
+	 * Remove checks whether a call to next or prev has been made, removes item last
+	 * returned, then shifts the pointer
+	 * 
+	 * @author Jonah
+	 */
 	@Override
 	public void remove() {
-		// TODO Auto-generated method stub
-
+		data.remove(current - 1);
+		current--;
 	}
 
+	/**
+	 * set() attempts to check if last operation was next() or previous() then sets
+	 * the element
+	 * 
+	 * @Author Jonah
+	 * @param e Fraction object to be set
+	 */
 	@Override
 	public void set(Fraction e) {
-		// TODO Auto-generated method stub
-
+		data.set(current - 1, e);
 	}
 
+	/**
+	 * next() returns the object at the current pointer and moves the iterator
+	 * forwards
+	 * 
+	 * @Author Jonah
+	 * @return Fraction object
+	 */
 	@Override
-	public void add(Fraction e) {
-		// TODO Auto-generated method stub
+	public Fraction next() {
+		if (!hasNext()) {
+			throw new NoSuchElementException();
+		}
 
+		return data.get(current++);
 	}
 
 	@Override
@@ -87,9 +106,9 @@ public class MyArrayListIterator implements ListIterator<Fraction> {
 	}
 
 	@Override
-	public Fraction next() {
+	public void add(Fraction e) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 }
